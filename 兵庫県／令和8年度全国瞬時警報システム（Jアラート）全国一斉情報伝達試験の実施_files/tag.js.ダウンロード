@@ -1,0 +1,24 @@
+var tagPublish=function(){this.path='/shared/system/csv/tag';this.csvName='tokushu.csv';this.csvData=new Array();this.itemLimit=2;this.imageThumbnail='';this.temp_li='<li><div class="recommended_inner"><div class="recommended_img"><p><img src="{{image}}" width="120" height="120" alt="" /></p></div><div class="recommended_body"><p><a href="{{file_path}}">{{page_title}}</a></p></div></div></li>';this.specialPageId='box_recommended';this.recommended_list='recommended_list';this.LoadData();}
+tagPublish.prototype={LoadData:function(){var class_id=this;var xmlhttp=this.createXMLHttpRequest();if(xmlhttp){xmlhttp.onreadystatechange=function(){if(xmlhttp.readyState==4){if(xmlhttp.status==200)class_id.getData(xmlhttp.responseText);}}}
+else alert("ajax error");xmlhttp.open('GET',this.path+'/'+this.csvName,true);xmlhttp.setRequestHeader("If-Modified-Since","Thu, 01 Jun 1970 00:00:00 GMT");xmlhttp.send(null);},getData:function(txt){if(!txt)return;this.csvData=this.getcsvData(txt);var html_str='';var tag_id_list=document.getElementById('cms_tag_list');if(tag_id_list&&this.csvData.length>0){for(i=0;i<this.csvData.length;i++){if(this.csvData[i]){var occurrences=this.getTagMatch(tag_id_list.value,this.csvData[i]['tag_id']);this.csvData[i]['occurrences']=occurrences;}}
+this.csvData.sort(this.getFunctionSort());for(var i=0;i<this.csvData.length;i++){if(i==this.itemLimit){break;}
+if(this.csvData[i]['occurrences']>0){var image=this.csvData[i]['image_thumbnail']?this.csvData[i]['image_thumbnail']:this.imageThumbnail;var item_li=this.temp_li;item_li=item_li.replace('{{image}}',image);item_li=item_li.replace('{{file_path}}',this.csvData[i]['file_path']);item_li=item_li.replace('{{page_title}}',this.csvData[i]['page_title']);html_str+=item_li;}}
+var end_page_area=document.getElementById(this.recommended_list);if(end_page_area){if(html_str){end_page_area.innerHTML=html_str;}
+else{var show_area=document.getElementById(this.specialPageId);if(show_area){show_area.parentNode.removeChild(show_area);}}};}
+else{var show_area=document.getElementById(this.specialPageId);if(show_area){show_area.parentNode.removeChild(show_area);}}},getFunctionSort:function(){return function(a,b){if(a.occurrences!=b.occurrences){return b.occurrences-a.occurrences;}
+if(a.special_flag!=b.special_flag){return a.special_flag<b.special_flag?1:-1;}
+if(a.publish_start!=b.publish_start){var curent_date=new Date(a.publish_start);var next_date=new Date(b.publish_start);return curent_date<next_date?1:-1;}
+if(a.page_id!=b.page_id){return a.page_id<b.page_id?1:-1;}
+return 0;}},getTagMatch:function(tag_id,tag_special_list){var tag_id_array=tag_id.split(',');var tag_special_list_array=tag_special_list.split(',');var occurrences=0;for(var i=0;i<tag_id_array.length;i++){if(tag_special_list_array.indexOf(tag_id_array[i])!==-1){occurrences++;}}
+return occurrences;},createXMLHttpRequest:function(){var XMLhttpObject=null;try{XMLhttpObject=new XMLHttpRequest();}
+catch(e){try{XMLhttpObject=new ActiveXObject("Msxml2.XMLHTTP");}
+catch(e){try{XMLhttpObject=new ActiveXObject("Microsoft.XMLHTTP");}
+catch(e){return null;}}}
+return XMLhttpObject;},getcsvData:function(csv_txt){if(csv_txt.search(/\n$/i)==-1)csv_txt+="\n";var tmp_1="";var tmp_2="";while(csv_txt.search(/\n/i)!=-1){tmp_1="";while(csv_txt!=""&&(tmp_1==""||(tmp_1.split('"').length-1)%2!=0)){var tmp=csv_txt.substr(0,csv_txt.search(/\n/i)+1);csv_txt=csv_txt.slice(tmp.length);tmp_1+=tmp;}
+tmp_1=tmp_1.replace(/\r?\n/ig,"@@javascript_csv_enter@@");tmp_1=tmp_1.replace(/@@javascript_csv_enter@@$/ig,"\n");tmp_2+=tmp_1;}
+csv_txt=tmp_2;var dataArray=csv_txt.split("\n");var csv_data=new Array();var item=new Array();var data=new Array();var tmp_data="";var tmp_data=new Object();for(i=0;i<dataArray.length;i++){if(dataArray[i]!=""){data=new Array();while(dataArray[i]!=""){tmp_data="";while(dataArray[i]!=""&&(tmp_data==""||(tmp_data.split('"').length-1)%2!=0)){var tmp=dataArray[i].substr(0,dataArray[i].search(/(,|\n|$)/i)+1);dataArray[i]=dataArray[i].slice(tmp.length);tmp_data+=tmp;}
+tmp_data=tmp_data.replace(/(,|\n)$/i,"");data[data.length]=tmp_data;}
+tmp_data=new Object();for(j=0;j<data.length;j++){if(data[j].match(/^\s$/i))data[j]="";if(data[j]!=""){data[j]=data[j].replace(/(^\"|\"\r?\n?$)/ig,"");data[j]=data[j].replace(/@@javascript_csv_enter@@/ig,"\n");if(i==0)item[j]=data[j];else tmp_data[item[j]]=data[j].replace(/\"\"/ig,"\"");}}
+if(i!=0)csv_data[csv_data.length]=tmp_data;}}
+return csv_data;}}
+window.onload=function(){var setListPageSpecial=new tagPublish();};

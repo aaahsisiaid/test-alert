@@ -1,0 +1,1 @@
+;(function(){var custmorId='8960';var importFile='//cdn-eas.readspeaker.com/script/'+custmorId+'/webReader/webReader.js?pids=wr&amp;forceAdapter=ioshtml5&amp;disable=translation,lookup';document.write('<script type="text\/javascript" src="'+importFile+'" id="rs_req_Init"><\/script>');}());

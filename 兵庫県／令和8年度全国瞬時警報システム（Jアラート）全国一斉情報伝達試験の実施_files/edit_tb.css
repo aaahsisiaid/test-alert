@@ -1,0 +1,262 @@
+@charset "utf-8";
+@media screen and (min-width : 641px) and (max-width : 1024px) {
+/* ==================================================
+idx
+================================================== */
+/* pickup_banner
+================================================== */
+#tmp_pickup_gallery .box_pickup,
+#tmp_pickup_banner .box_banner {
+	min-height:280px;
+}
+#tmp_pickup_gallery {
+    width: 62.5%;
+}
+#tmp_pickup_banner {
+    width: 35%;
+}
+#tmp_pickup_banner .box_banner .banner_cnt .banner{
+	margin-bottom: 10px;
+	min-height: initial;
+	min-height: 0;
+}
+.furigana_on .box_pickup .pickup_cnt .pickup_slides .slick-list {
+	padding:0 !important;
+}
+/* ==================================================
+event pickup
+================================================== */
+#tmp_event_pickup {
+	width: calc(100% - 230px);
+}
+#tmp_event_pickup_cnt .pickup_item .item_img {
+	height:auto;
+}
+#tmp_event_cal_7w .event_cal_7w {
+	width:100%;
+}
+#tmp_event_hold_cnt .event_hold_map {
+	width:32%;
+}
+#tmp_event_hold_cnt .event_hold_list {
+	width:67%;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li {
+	width:30%;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li:nth-child(4n+1) {
+	clear:none;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li:nth-child(3n+1) {
+	clear:both;
+}
+#tmp_event_cal_refine_btn .submit_btn {
+	width: 40%;
+}
+#tmp_event_cal_refine_btn .clear_btn {
+	width: 35%;
+}
+#tmp_event_long .event_long .event_category_link a {
+	-webkit-background-size:6px auto;
+	-moz-background-size:6px auto;
+	background-size:6px auto;
+	padding-left:10px;
+}
+
+/* scroll box_recommended
+================================================== */
+.js_scroll.box_recommended {
+	left: 0;
+	padding: 10px 20px;
+	width: 100%;
+	margin:  0;
+}
+.js_scroll.box_recommended .recommended_ttl {
+	padding: 8px 10px 8px 0;
+}
+.js_scroll.box_recommended .recommended_cnt {
+    padding: 0;
+}
+.js_scroll.box_recommended .recommended_list {
+	margin: 0;
+}
+.js_scroll.box_recommended .recommended_list li {
+	padding: 0;
+	display: none;
+}
+.js_scroll.box_recommended .recommended_list li:first-child {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+.js_scroll.box_recommended .recommended_inner .recommended_img {
+    width: 65px;
+}
+.js_scroll.box_recommended .recommended_inner .recommended_body {
+	font-size: 100%;
+	padding: 8px 15px;
+}
+.js_scroll.box_recommended .recommended_btn_close a {
+	width: 28px;
+	height: 28px;
+	-webkit-background-size: 14px auto;
+	-moz-background-size: 14px auto;
+	background-size: 14px auto;
+}
+.js_scroll.box_recommended .btn_recommended {
+    display: none;
+}
+/* shisetsu top */
+#tmp_contents #tmp_facilities_btn ul li{
+	width: 50%;
+}
+#tmp_contents #tmp_facilities_btn ul li:nth-child(2n){
+	clear: right;
+}
+#tmp_contents #tmp_facilities_btn ul li:nth-child(2n+1){
+	clear: left;
+}
+/* shisetsu free */
+#tmp_contents .main_photo_img {
+    width: 50%;
+}
+#tmp_contents .main_photo_txt {
+    margin-left: -50%;
+}
+#tmp_contents .main_photo_txt .wrap_main_photo_txt {
+    margin-left: 52%;
+}
+/* foreign language
+================================================== */
+#tmp_en_ttl{
+	width: 100%;
+	height:400px;
+}
+/* gmap
+================================================== */
+#tmp_gmap_link{
+	width:auto;
+	max-width:520px;
+}
+/* Start Shisetsu_Top
+================================================== */
+.no_javascript #tmp_wrap_header:before{
+    display: none;
+}
+/* ==================================================
+Custom CSS
+=================================================== */
+#tmp_opdata_datatime_cnt label,
+#tmp_opdata_datapost_cnt label {
+	display: block;
+	padding: 5px 0;
+}
+#tmp_opdata_data {
+	width: 260px;
+}
+#tmp_opdata_datapost {
+	margin-top: 18px !important;
+	margin-bottom: 27px !important;
+}
+#tmp_opdata_displayedresults,
+#tmp_opdata_extension {
+	padding-left: 0;
+}
+#tmp_opdata_displayedresults {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#tmp_opdata_organization2 {
+	margin-top: 14px;
+}
+#tmp_opdata_organization_cnt select {
+	width: 210px;
+}
+#tmp_opdata_submit {
+	margin-top: 40px;
+}
+#searchformsubmit {
+	width: 48%;
+	margin: 0 2% 0 0;
+	top: 3px;
+	left: 0;
+}
+#searchformclr {
+	width: 48%;
+	margin: 0;
+}
+}
+@media screen and (max-width : 768px) {
+#tmp_pickup_gallery .box_pickup,
+#tmp_pickup_banner .box_banner {
+	min-height:200px;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li {
+	width:45%;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li:nth-child(3n+1) {
+	clear:none;
+}
+#tmp_event_cal_refine_cnt fieldset .genre li:nth-child(odd) {
+	clear:both;
+}
+#tmp_event_pickup,
+#tmp_event_banner {
+	width:100%;
+	float:none;
+}
+#tmp_event_pickup {
+	margin-bottom:20px;
+}
+#tmp_contents #tmp_event_banner .event_bnr li {
+	margin:0 0 9px;
+}
+#tmp_contents #tmp_event_banner .event_bnr li a {
+	height:55px;
+	padding:5px 15px 5px 54px;
+	background-position:12px center;
+	-webkit-background-size:30px auto !important;
+	-moz-background-size:30px auto !important;
+	background-size:30px auto !important;
+}
+#tmp_contents #tmp_event_banner .event_bnr li a br {
+	display:none;
+}
+#tmp_contents #tmp_event_banner .event_bnr li.bnr_tourism a {
+	padding:7px 5px 7px;
+	text-align:center;
+}
+#tmp_contents #tmp_event_banner .event_bnr li.bnr_tourism img {
+	width:72px;
+	height:auto;
+}
+#tmp_contents #tmp_event_banner .event_bnr li.bnr_tourism a::after {
+	right:2px;
+	bottom:2px;
+	width:12px;
+	height:12px;
+}
+#tmp_en_ttl{
+	height:340px;
+}
+}
+@media screen and (min-width : 641px) and (max-width : 900px) {
+#tmp_message .float_lft {
+	width:100%;
+	float:none;
+	margin-right:0 !important;
+}
+#tmp_kenmin #tmp_message .message_txt {
+	width:100%;
+	float:none;
+}
+
+}
+@media screen and (min-width : 641px) and (max-width : 759px) {
+.custom_kenmin .col_kenmin .col_cnt,
+.custom_kenmin .col_kenmin .col_rnavi {
+	width:100%;
+	float:none;
+}
+}
+
